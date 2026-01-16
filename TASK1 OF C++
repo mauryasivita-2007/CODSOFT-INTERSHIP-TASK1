@@ -1,0 +1,39 @@
+// THIS IS CODE FOR NUMBER GUESSING GAME USING C++ LANGUAGE .THIS GAME RANDOM GENERATES A NUMBER BETWEEN 1-100 AND USER HAVE TO GUESS THE NUMBER THAT IS GENERATED .
+
+#include <iostream>
+#include <cstdlib>//allow programmer to use rand() and srand() functions 
+#include <ctime>//allow programmer to use time() function 
+using namespace std;
+
+int main() {
+    srand(time(0)); // generate random no every time we run the code 
+    int game_num = rand() % 100 + 1; // random number between 1 and 100 
+
+    int user_num;
+    int attempts = 0;//initializing the attempt count to 0 
+
+    cout << "==================================================="<< endl;
+    cout << "   WELCOME TO NUMBER GUESSING GAME BY SIVITA MOURYA"<< endl;
+    cout << "==================================================="<< endl;
+    cout << "Guess the number between 1 and 100"<<endl;
+
+    do { //using loop for giving multiple attempts
+        cout << "Enter your guess: ";
+        cin >> user_num;
+        attempts++;
+
+        if (user_num == game_num) {
+            cout << "\n Congrats! You guessed it in " << attempts << " attempts!"<<endl;
+            break;
+            //below this is feedback on whether the no is small or high
+        } else if (user_num > game_num) {
+            cout << "Too High! Try again.\n";
+        } else {
+            cout << "Too Low! Try again.\n";
+        }
+
+    } while (true);
+
+    cout << "\nThanks for playing!\n";
+    return 0;
+}
